@@ -1,40 +1,20 @@
-#Represents the Node class to be used in a LinkedList
-class Node:
+import LinkedList
 
-    #Function to initialize a node object
-    def __init__(self, val):
-        self.val = val
-        self.next = None
+#Initialize linked list
+ll = LinkedList.LinkedList()
+ll.pushToFront(5)
+ll.pushToFront(4)
+ll.pushToFront(3)
+ll.pushToFront(2)
+ll.pushToFront(1)
 
-#Represents the LinkedList class consisting of Node objects
-class LinkedList:
+#Print original linked list
+print "Original Linked List: "
+ll.printList()
 
-    #Function to initialize a LinkedList
-    def __init__(self):
-        self.head = None
+#Reverse the linked list
+ll.reverse()
 
-    #New function to insert new node at head of LinkedList
-    def pushToFront(self, val):
-        node = Node(val)
-        node.next = self.head
-        self.head = node
-
-    #Prints the LinkedList
-    def printList(self):
-        current = self.head
-        while(current != None):
-            print current.val, "\n"
-            current = current.next
-
-    #Function to reverse the LinkedList
-    #Time complexity: O(n)
-    #Space complexity: O(1)
-    def reverse(self):
-        prev = None
-        current = self.head
-        while(current != None):
-            next = current.next
-            current.next = prev
-            prev = current
-            current = next
-        self.head = prev
+#Print reversed linked list
+print "Reversed Linked List: "
+ll.printList()
